@@ -1,12 +1,9 @@
-
 import { Row, Col, Typography, Input, Button } from 'antd';
 import './Login.css';
-
 
 const { Title } = Typography;
 
 function LoginPage() {
-
 	return (
 		<Row
 			className="Row"
