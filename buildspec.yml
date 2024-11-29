@@ -2,25 +2,28 @@ version: 0.2
 
 env:
   variables:
-    AWS_DEFAULT_REGION: us-east-1                     # Thay thế bằng khu vực của bạn
-    REPOSITORY_URI: 590183762922.dkr.ecr.us-east-1.amazonaws.com/artall/react-app   # Thay thế bằng URI repository của bạn
+    AWS_DEFAULT_REGION: us-east-1  # Thay thế bằng khu vực của bạn
+    REPOSITORY_URI: 590183762922.dkr.ecr.us-east-1.amazonaws.com/artall/react-app  # Thay thế bằng URI repository của bạn
 
 phases:
   install:
     commands:
       - echo Installing dependencies...
-      - yarn install                                   # Cài đặt dependencies bằng Yarn
+      - yarn install  # Cài đặt dependencies bằng Yarn
       - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --storage-driver=overlay2 &  # Khởi động Docker daemon
       - timeout 15 sh -c "until docker info; do echo .; sleep 1; done" # Đảm bảo Docker sẵn sàng
+
   pre_build:
     commands:
       - echo Logging into Amazon ECR...
-      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $REPOSITORY_URI   # Đăng nhập vào ECR
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $REPOSITORY_URI  # Đăng nhập vào ECR
+
   build:
     commands:
       - echo Building Docker image for React app...
       - docker build -t react-app .  # Xây dựng Docker image từ Dockerfile
-      - docker tag react-app:latest $REPOSITORY_URI:latest  # Gắn tag cho image
+      - docker tag react-app:latest $REPOSITORY_URI:latest  # Gắn tag cho image để chuẩn bị push
+
   post_build:
     commands:
       - echo Pushing Docker image to ECR...
