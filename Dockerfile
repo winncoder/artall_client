@@ -1,4 +1,4 @@
-# Stage 1: Build stage
+# Stage 1: Build stage 
 FROM node:18-alpine AS builder
 
 # Thiết lập thư mục làm việc
@@ -20,7 +20,8 @@ RUN yarn build
 FROM nginx:alpine
 
 # Thiết lập thư mục cần thiết cho việc phục vụ tệp build của ReactJS
-COPY --from=builder /app/build /usr/share/nginx/html
+# Chỉnh lại đường dẫn từ /app/build thành /app/dist
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Expose cổng 80 để phục vụ ứng dụng ReactJS
 EXPOSE 80
