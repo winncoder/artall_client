@@ -1,153 +1,158 @@
 /* Đặt nền trắng cho toàn bộ trang */
-body, .ant-layout {
-  background-color: #ffffff !important;
+body,
+.ant-layout {
+	background-color: #ffffff !important;
 }
 
 p {
-  margin: 0px;
+	margin: 0px;
 }
 
 /* Đặt nền trắng cho carousel nếu có */
 .ant-carousel .slick-slide {
-  background-color: #ffffff !important;
+	background-color: #ffffff !important;
 }
 
 /* Đặt nền trắng cho danh sách, avatar, và các phần tử khác */
-.ant-list-item, .ant-list-item-meta {
-  background-color: #ffffff !important;
+.ant-list-item,
+.ant-list-item-meta {
+	background-color: #ffffff !important;
 }
 /* CSS cho phần ảnh trong thẻ Card */
 .ant-avatar {
-  width: 37px;
-  height: 37px;
+	width: 37px;
+	height: 37px;
 }
 
 .ant-list-item-meta {
-  display: flex;
+	display: flex;
 }
 
 .ant-image.css-dev-only-do-not-override-1okl62o {
-  position: relative;
-  width: 100%;
-  height: 510px; /* Giữ hình vuông */
+	position: relative;
+	width: 100%;
+	height: 510px; /* Giữ hình vuông */
 }
 
 /* Bỏ hiệu ứng hover khi rê chuột vào card */
 .ant-card:hover {
-  box-shadow: none !important;
-  transform: none !important; /* Nếu có hiệu ứng di chuyển khi hover thì loại bỏ */
+	box-shadow: none !important;
+	transform: none !important; /* Nếu có hiệu ứng di chuyển khi hover thì loại bỏ */
 }
 
 /* Bỏ border xung quanh card */
 .ant-card {
-  border: none !important;
-  box-shadow: none !important;
-  background-color: #ffffff !important;
-  font-family: 'Poppins', sans-serif;
+	border: none !important;
+	box-shadow: none !important;
+	background-color: #ffffff !important;
+	font-family: 'Poppins', sans-serif;
 }
 
 .ant-card .ant-card-body {
-  padding: 0px;
-  font-size: 13px;
-  font-weight: 400;
+	padding: 0px;
+	font-size: 13px;
+	font-weight: 400;
 }
 
 .ant-image.css-dev-only-do-not-override-1okl62o img {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .card-image {
-  height: 510px;
+	height: 510px;
 }
 
 .ant-carousel .slick-slide {
-  text-align: center;
-  height: 510px; /* Giữ kích thước hình vuông cho carousel */
-  overflow: hidden;
+	text-align: center;
+	height: 510px; /* Giữ kích thước hình vuông cho carousel */
+	overflow: hidden;
 }
 
 .ant-carousel .slick-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .ant-input.css-dev-only-do-not-override-1okl62o.ant-input-outlined {
-  min-height: 30px !important;
-  height: auto !important;
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
+	min-height: 30px !important;
+	height: auto !important;
+	font-family: 'Poppins', sans-serif;
+	font-size: 14px;
 }
 
 .ant-input.css-dev-only-do-not-override-1okl62o.ant-input-outlined::placeholder {
-  color: gray;
-  font-size: 14px;
-  font-family: 'Poppins', sans-serif;
-  padding-top: 0px;
+	color: gray;
+	font-size: 14px;
+	font-family: 'Poppins', sans-serif;
+	padding-top: 0px;
 }
 
-.card-image, .ant-carousel .slick-slide .card-image {
-  border-radius: 8px;
+.card-image,
+.ant-carousel .slick-slide .card-image {
+	border-radius: 8px;
 }
 
 .post-image-container {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 /* Container cho dropdown */
 .dropdown-container {
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-  margin: 5px;
-  font-family: 'Poppins', sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 5px;
+	font-family: 'Poppins', sans-serif;
 }
 
 .dropdown-text {
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  margin-right: 15px; /* Tạo khoảng cách với mũi tên */
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	margin-right: 15px; /* Tạo khoảng cách với mũi tên */
 }
 
 /* Nút mũi tên có viền bo tròn */
 .dropdown-arrow {
-  cursor: pointer;
-  font-size: 9px;
-  padding: 7px;
-  border: 1px solid #d9d9d9;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 0px 7px 3px #f4f4f4;
+	cursor: pointer;
+	font-size: 9px;
+	padding: 7px;
+	border: 1px solid #d9d9d9;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0px 0px 7px 3px #f4f4f4;
 }
 
 /* Menu tùy chọn trong dropdown */
 .ant-dropdown-menu {
-  min-width: 200px;
-  border: 1px solid #d9d9d9; /* Thêm viền cho menu */
+	min-width: 200px;
+	border: 1px solid #d9d9d9; /* Thêm viền cho menu */
 }
 
-:where(.css-dev-only-do-not-override-1okl62o).ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item {
-  font-size: 14px;
-  font-family: 'Poppins', sans-serif;
-  padding: 10px 20px; /* Thêm padding cho menu */
+:where(.css-dev-only-do-not-override-1okl62o).ant-dropdown
+	.ant-dropdown-menu
+	.ant-dropdown-menu-item {
+	font-size: 14px;
+	font-family: 'Poppins', sans-serif;
+	padding: 10px 20px; /* Thêm padding cho menu */
 }
 
 /* Modal Post Option */
 
 .ant-modal.css-dev-only-do-not-override-1okl62o.post-option-modal {
-  width: 400px !important;
-  padding: 0px !important;
+	width: 400px !important;
+	padding: 0px !important;
 }
 
 .post-option-modal .ant-modal-content {
-  border-radius: 15px;
-  padding: 0px;
+	border-radius: 15px;
+	padding: 0px;
 }

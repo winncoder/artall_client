@@ -1,12 +1,12 @@
 body {
-    font-family: 'Poppins', sans-serif !important; /* Đặt font cho toàn bộ body */
-    margin: 0; /* Loại bỏ margin mặc định */
-    padding: 0; /* Loại bỏ padding mặc định */
-    box-sizing: border-box; /* Đặt box-sizing cho tất cả các phần tử */
+	font-family: 'Poppins', sans-serif !important; /* Đặt font cho toàn bộ body */
+	margin: 0; /* Loại bỏ margin mặc định */
+	padding: 0; /* Loại bỏ padding mặc định */
+	box-sizing: border-box; /* Đặt box-sizing cho tất cả các phần tử */
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit; /* Đảm bảo box-sizing cho tất cả các phần tử */
+	box-sizing: inherit; /* Đảm bảo box-sizing cho tất cả các phần tử */
 }

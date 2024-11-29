@@ -1,89 +1,89 @@
 .post-detail-modal .ant-modal-content {
-    border-radius: 0 10px 10px 0!important;
-    overflow: hidden;
-    padding: 0 !important;
+	border-radius: 0 10px 10px 0 !important;
+	overflow: hidden;
+	padding: 0 !important;
 }
 
 .post-detail-container {
-    padding: 0;
-    display: flex;
-    align-items: stretch;
+	padding: 0;
+	display: flex;
+	align-items: stretch;
 }
 
 .post-detail-image {
-    width: 100%;
-    height: 100%;
-  }
+	width: 100%;
+	height: 100%;
+}
 
 .post-detail-image .slick-list {
-    height: 510px;
-    width: 500px;
+	height: 510px;
+	width: 500px;
 }
 
 .ant-image-img.card-image.css-dev-only-do-not-override-1okl62o {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    width: 100%;
-    height: 100%;
-    object-fit: cover !important;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 100%;
+	height: 100%;
+	object-fit: cover !important;
 }
 
 .post-detail-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    background-color: #fff;
-    border-left: 1px solid #ececec;;
-    font-family: 'Poppins', sans-serif;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background-color: #fff;
+	border-left: 1px solid #ececec;
+	font-family: 'Poppins', sans-serif;
 }
 
 .comments-section::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
 
 .user-info-cmt {
-    padding: 10px;
-    border-bottom: 1px solid #ececec;
-    font-size: 13px !important;
-    font-weight: 600;
+	padding: 10px;
+	border-bottom: 1px solid #ececec;
+	font-size: 13px !important;
+	font-weight: 600;
 }
 
 .comment-detail-section {
-    padding: 10px;
+	padding: 10px;
 }
 
 .react-section {
-    margin-top: auto;
+	margin-top: auto;
 }
 
 .cmt-input-detail {
-    padding: 10px;
-    border-top: 1px solid #e4e4e4;
+	padding: 10px;
+	border-top: 1px solid #e4e4e4;
 }
 
 .comment-meta {
-    font-size: 12px;
-    color: gray;
-    margin-top: 5px;
+	font-size: 12px;
+	color: gray;
+	margin-top: 5px;
 }
 
 .edit-btn-cmt-post-detail {
-    margin-left: 10px;
-    cursor: pointer;
-    font-weight: 500;
+	margin-left: 10px;
+	cursor: pointer;
+	font-weight: 500;
 }
 
 .edit-btn-cmt-post-detail:hover {
-    color: #1890ff;
+	color: #1890ff;
 }
 
 .delete-btn-cmt-post-detail {
-    margin-left: 10px;
-    cursor: pointer;
-    font-weight: 500;
+	margin-left: 10px;
+	cursor: pointer;
+	font-weight: 500;
 }
 
 .delete-btn-cmt-post-detail:hover {
-    color: red;
+	color: red;
 }

@@ -6,5 +6,5 @@ export default defineConfig({
 	plugins: [react()],
 	define: {
 		global: 'window', // Thêm alias cho global để sử dụng window thay thế
-  },
+	},
 });

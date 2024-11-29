@@ -1,21 +1,21 @@
 .notification-user-container {
-    position: fixed;
-    top: 0;
-    left: -100%; /* Đặt Search ban đầu ra ngoài màn hình */
-    width: 350px;
-    height: 100vh;
-    background: #fff;
-    border-left: 1px solid #D8D8D8;
-    padding: 20px;
-    border-radius: 0 15px 15px 0;
-    border-right: 1px solid #e9e9e9;
-    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1); /* Chỉ bóng bên phải */
-    overflow-y: auto;
-    z-index: 1000;
-    transition: left 0.3s ease; /* Tốc độ trượt mượt mà hơn */
+	position: fixed;
+	top: 0;
+	left: -100%; /* Đặt Search ban đầu ra ngoài màn hình */
+	width: 350px;
+	height: 100vh;
+	background: #fff;
+	border-left: 1px solid #d8d8d8;
+	padding: 20px;
+	border-radius: 0 15px 15px 0;
+	border-right: 1px solid #e9e9e9;
+	box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1); /* Chỉ bóng bên phải */
+	overflow-y: auto;
+	z-index: 1000;
+	transition: left 0.3s ease; /* Tốc độ trượt mượt mà hơn */
 }
 
 /* Khi Search mở, chuyển vị trí sang trái */
 .notification-user-container.open {
-    left: 70px; /* Điều chỉnh vị trí khi mở */
+	left: 70px; /* Điều chỉnh vị trí khi mở */
 }
