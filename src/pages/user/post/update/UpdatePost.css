@@ -1,0 +1,19 @@
+.post-update-modal .ant-modal-content {
+    border-radius: 10px !important;
+    overflow: hidden;
+    padding: 0 !important;
+}
+
+.modal-navbar {
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 9px 10px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.title-modal-navbar {
+    font-size: 15px;
+    font-weight: 600;
+}

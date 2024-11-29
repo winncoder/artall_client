@@ -1,0 +1,135 @@
+.update-user-profile {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    padding: 15px 20px;
+    border-radius: 20px;
+  }
+  
+  .profile-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+  
+  .profile-info {
+    flex-grow: 1;
+  }
+  
+  .profile-info .username {
+    font-weight: 600;
+    font-size: 16px;
+    display: block;
+    color: #333;
+  }
+  
+  .profile-info .full-name {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .change-photo-button {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .change-photo-button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  .edit-profile-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 20px;
+    color: #333;
+  }
+  
+  .user-profile-form .ant-form-item-label > label {
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .user-profile-form .ant-input,
+  .user-profile-form .ant-input::placeholder {
+    color: #666;
+  }
+  
+  .user-profile-form .ant-btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 100px;
+    height: auto;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+  }
+  
+  .user-profile-form .ant-btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+
+  .user-profile-form .ant-select-selector {
+    border-radius: 10px !important;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .user-profile-form .ant-form-item:last-child {
+    display: flex;
+    justify-content: flex-end;
+    font-weight: 400;
+  }
+
+  .ant-modal.css-dev-only-do-not-override-1okl62o.upload-profile-photo-modal {
+    width: 400px !important;
+    padding: 0px !important;
+    font-family: 'Poppins', sans-serif;
+    align-items: center;
+  }
+  
+ .upload-profile-photo-modal .ant-modal-content {
+    border-radius: 15px;
+    padding: 0px;
+  }
+
+  .upload-button {
+    color: white;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 20px 0;
+  }
+
+  .select-ava-btn {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    height: auto;
+    width: auto;
+    padding: 5px 25px;
+  }
+
+ 
+
+  .ant-upload {
+    padding: 0 !important;
+  }

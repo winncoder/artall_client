@@ -1,0 +1,115 @@
+.user-profile-container {
+    width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    padding: 0 33px;
+  }
+  
+  .profile-avatar {
+    margin-right: 95px;
+    margin-top: 40px;
+  }
+  
+  .user-info {
+    text-align: left;
+  }
+  
+  .username-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .username-section .username {
+    font-family: 'Poppins', sans-serif;
+    color: #262626;
+    font-size: 17px;
+    font-weight: 500;
+    margin-right: 20px;
+  }
+
+  .user-info .real-name {
+    font-family: 'Poppins', sans-serif;
+    color: #262626;
+    font-size: 17px;
+    font-weight: 500;
+  }
+  
+  .edit-profile-button {
+    background-color: #efefef;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .edit-profile-button:hover {
+    background-color: #e0e0e0 !important;
+    color: #262626 !important;
+  }
+  
+  .settings-icon {
+    font-size: 20px;
+  }
+  
+  .user-stats {
+    display: flex;
+    gap: 30px;
+    margin: 15px 0;
+  }
+  
+  .user-stats span {
+    font-size: 14px;
+  }
+  
+  .real-name {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .bio-user {
+    display: block;
+    color: #262626;
+  }
+  
+  .facebook-link {
+    color: #00376b;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  
+  .highlights {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+  }
+  
+  .highlight {
+    text-align: center;
+  }
+  
+  .highlight .ant-avatar {
+    border-radius: 50%;
+    margin-bottom: 5px;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .tab-button {
+    color: #8e8e8e;
+  }
+  
+  .tab-button.active {
+    font-weight: bold;
+    color: black;
+  }
+  

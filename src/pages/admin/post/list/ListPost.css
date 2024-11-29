@@ -1,0 +1,85 @@
+/* Đảm bảo toàn bộ container chiếm hết chiều cao màn hình */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    height: 100%;
+}
+
+/* Khu vực bảng dữ liệu */
+.table-container {
+    flex-grow: 1;  /* Phần bảng sẽ chiếm phần còn lại của màn hình */
+    overflow: auto; /* Cuộn bảng khi có quá nhiều dữ liệu */
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Khu vực pagination luôn nằm dưới cùng */
+.pagination-container {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px 0;
+    margin-bottom: 18px;
+}
+
+/* Table CSS */
+.content-table {
+    margin-bottom: 0;
+}
+
+/* Các thiết lập khác cho bảng */
+.ant-table td, .ant-table th {
+    border-right: none !important;
+}
+
+.ant-table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.ant-table-cell {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+/* Các thiết lập khác cho các nút và layout */
+.content-navbar {
+    margin-top: 20px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.btn-icon-admin {
+    height: 38px;
+    width: 38px !important;
+    background-color: #f0f0f0 !important;
+    color: #262626;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 30px;
+    padding: 0 15px !important;
+    border: none !important;
+    background: none;
+}
+
+.btn-icon-admin:hover {
+    color: white !important;
+    background-color: #262626 !important;
+}
+
+.btn-create-post {
+    height: 38px;
+    background-color: #1890ff;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 12px;
+    border: none !important;
+    padding: 0 25px;
+}
+
+.btn-create-post:hover {
+    background-color: #262626 !important;
+    color: white !important;
+    border: none !important;
+}

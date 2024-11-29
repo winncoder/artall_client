@@ -4,10 +4,11 @@ import { RouterProvider } from 'react-router-dom';
 import axios from 'axios';
 import Router from './routers/Router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import './Main.css';
 
 const queryClient = new QueryClient();
 
-axios.defaults.baseURL = 'http://localhost:3000/api';
+axios.defaults.baseURL = 'http://localhost:5000/api';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<QueryClientProvider client={queryClient}>

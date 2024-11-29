@@ -1,0 +1,125 @@
+  .ant-modal.css-dev-only-do-not-override-1okl62o.list-follow-modal {
+    width: 400px !important;
+    padding: 0px !important;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+ .list-follow-modal .ant-modal-content {
+    border-radius: 15px;
+    padding: 0px;
+  }
+
+  /* Căn chỉnh modal navbar */
+  .modal-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  /* Căn giữa tiêu đề */
+  .title-list-modal {
+    flex: 1;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    padding-left: 12px;
+  }
+  
+  /* Định dạng hình ảnh icon */
+  .close-icon {
+    width: 15px;
+    height: auto;
+    cursor: pointer;
+  }
+  
+  /* Search bar styles */
+  .search-container {
+    padding: 10px 20px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .search-input {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #f5f5f5;
+  }
+
+  .search-input:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .search-input:focus-within {
+    box-shadow: none;
+    background-color: #f5f5f5 !important;
+  }
+  
+  /* Follower list styles */
+  .follower-list {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px 20px;
+  }
+  
+  .follower-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .follower-avatar {
+    background-color: #f0f0f0; /* Placeholder color */
+  }
+  
+  .follower-info {
+    flex: 1;
+    margin-left: 10px;
+  }
+  
+  .follower-username {
+    font-weight: 600;
+    color: #262626;
+  }
+
+  .follower-username:hover {
+    color: #262626;
+  }
+  
+  .follow-button {
+    background-color: #0095f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 14px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .follow-button:hover {
+    background-color: #007ccf !important;
+    color: #fefefe !important;
+  }
+
+  .follow-button span:hover {
+    color: #fefefe !important;
+  }
+
+  .unfollow-button {
+    background-color: #efefef; /* Màu xám cho nút Unfollow */
+    color: #262626;
+    border: none;
+  }
+
+  .unfollow-button:hover {
+    background-color: #e0e0e0 !important;
+    color: #262626 !important;
+  }
+
+  .unfollow-button span:hover {
+    color: #262626 !important;
+  }

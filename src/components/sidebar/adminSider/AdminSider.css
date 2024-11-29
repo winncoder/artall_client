@@ -1,0 +1,91 @@
+/* Sider CSS */
+.layout {
+  font-family: 'Poppins', sans-serif;
+}
+
+.sider {
+    padding: 20px 10px;
+    background: #fff;
+    border-right: 1px solid #D8D8D8;
+  }
+  
+  /* Logo container and logo */
+.logo-container {
+  margin-bottom: 40px;
+  padding: 10px 16px 40px 24px;
+  margin: 4px;
+}
+  
+.ant-menu-item:hover .menu-icon,
+.ant-menu-item:hover .menu-icon-avatar {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+.custom-menu .ant-menu-item {
+  height: 50px;
+  line-height: 60px;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+}
+
+:where(.css-dev-only-do-not-override-1okl62o).ant-menu-light .ant-menu-item-selected, :where(.css-dev-only-do-not-override-1okl62o).ant-menu-light>.ant-menu .ant-menu-item-selected {
+  background-color: #fff;
+}
+
+:where(.css-dev-only-do-not-override-1okl62o).ant-menu-light .ant-menu-item-selected:hover, :where(.css-dev-only-do-not-override-1okl62o).ant-menu-light>.ant-menu .ant-menu-item-selected {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+/* Chắc chắn rằng .menu-icon và .menu-icon-avatar có transition mặc định */
+.menu-icon, .menu-icon-avatar {
+  transition: transform 0.3s ease;
+  }
+
+  /* Menu item khi được chọn: chữ in đậm và bỏ viền */
+.ant-menu-item-selected {
+  font-weight: 600;
+  border: none;
+  color: black;
+}
+    
+/* Nếu Ant Design tự động thêm viền màu xanh, chúng ta có thể override như sau */
+.ant-menu-item-selected::after {
+  border-right: none !important; /* Bỏ viền bên phải */
+}
+  
+/* Bỏ hover hiệu ứng màu xanh khi chọn */
+.ant-menu-item::after {
+  border: none !important;
+}
+
+/* Mục More được đẩy xuống cuối */
+.ant-layout-sider-children .ant-menu-item:last-child {
+  margin-top: auto; /* Đẩy mục cuối xuống */
+}
+
+/* Profile Avatar */
+.profile-section .ant-avatar {
+  margin-bottom: 10px;
+}
+
+.menu-icon, .menu-icon-avatar {
+  transition: transform 0.3s ease;
+}
+
+.ant-menu-item-selected {
+  font-weight: 600;
+  border: none;
+  color: black;
+}
+
+.ant-modal {
+  width: 850px !important; /* Tăng chiều ngang modal */
+}
+
+
+:where(.css-dev-only-do-not-override-10kl620).ant-menu-light:not(.ant-menu-horizontal) .ant-menu-item:not(.ant-menu-item-selected):hover {
+    background-color: rgba(0, 0, 0, 0.06);
+    padding: 0 10px;
+}
+  

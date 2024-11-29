@@ -1,0 +1,15 @@
+.register-form .ant-btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 100px;
+    height: auto;
+    width: 87%;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+  }
+  
+  .register-form .ant-btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }

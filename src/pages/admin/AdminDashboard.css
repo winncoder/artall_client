@@ -1,0 +1,106 @@
+.dashboard-container {
+    background-color: #ffffff;
+    min-height: 100vh;
+    margin-bottom: 20px;
+}
+
+.dashboard-cards {
+    margin-bottom: 20px;
+}
+
+.ant-select {
+    margin: 0;;
+}
+
+
+.ant-select-selection-item {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 500;
+    border-radius: 10px !important;
+}
+
+.stat-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.stat-card .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.stat-card .stat-icon {
+    font-size: 30px;
+    margin-right: 10px;
+    color: #3b82f6;
+}
+
+.stat-card h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #262626;
+    font-weight: 500;
+}
+
+.stat-card strong {
+    padding-left: 10px;
+    display: block;
+    font-size: 16px;
+    color: #262626;
+    font-weight: 500;
+}
+
+.percentage-change {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.ant-space-item {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.percentage-icon {
+    font-size: 18px;
+}
+
+.percentage-icon.green {
+    color: #10b981;
+}
+
+.percentage-icon.red {
+    color: #ef4444;
+}
+
+.chart-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #374151;
+}
+
+.stat-card, .chart-card {
+    border: 2px solid #d9d9d9 !important; /* Viền đen */
+    border-radius: 30px !important; /* Bo góc nhẹ */
+    padding: 16px !important; /* Khoảng cách bên trong */
+    background-color: #ffffff; /* Nền trắng */
+    font-family: 'Poppins', sans-serif !important;
+  }
+
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+tspan {
+    font-family: 'Poppins', sans-serif !important;
+}
