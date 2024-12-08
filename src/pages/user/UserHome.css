@@ -28,7 +28,7 @@ p {
 	display: flex;
 }
 
-.ant-image.css-dev-only-do-not-override-1wwf28x {
+.ant-image.css-1wwf28x {
 	position: relative;
 	width: 100%;
 	height: 510px; /* Giữ hình vuông */
@@ -54,7 +54,7 @@ p {
 	font-weight: 400;
 }
 
-.ant-image.css-dev-only-do-not-override-1wwf28x img {
+.ant-image.css-1wwf28x img {
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -79,14 +79,14 @@ p {
 	object-fit: cover;
 }
 
-.ant-input.css-dev-only-do-not-override-1wwf28x.ant-input-outlined {
+.ant-input.css-1wwf28x.ant-input-outlined {
 	min-height: 30px !important;
 	height: auto !important;
 	font-family: 'Poppins', sans-serif;
 	font-size: 14px;
 }
 
-.ant-input.css-dev-only-do-not-override-1wwf28x.ant-input-outlined::placeholder {
+.ant-input.css-1wwf28x.ant-input-outlined::placeholder {
 	color: gray;
 	font-size: 14px;
 	font-family: 'Poppins', sans-serif;
@@ -137,7 +137,7 @@ p {
 	border: 1px solid #d9d9d9; /* Thêm viền cho menu */
 }
 
-:where(.css-dev-only-do-not-override-1wwf28x).ant-dropdown
+:where(.css-1wwf28x).ant-dropdown
 	.ant-dropdown-menu
 	.ant-dropdown-menu-item {
 	font-size: 14px;
@@ -147,7 +147,7 @@ p {
 
 /* Modal Post Option */
 
-.ant-modal.css-dev-only-do-not-override-1wwf28x.post-option-modal {
+.ant-modal.css-1wwf28x.post-option-modal {
 	width: 400px !important;
 	padding: 0px !important;
 }
