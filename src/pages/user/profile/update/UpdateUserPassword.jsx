@@ -30,6 +30,8 @@ const UpdateUserPassword = () => {
 
 	const handleUserPasswordUpdateOk = async () => {
 		try {
+			console.log('currentPassword', currentPassword);
+			console.log('password', user?.userProfile?.password);
 			if (currentPassword !== user?.userProfile?.password) {
 				message.error('Current password is incorrect');
 				return;

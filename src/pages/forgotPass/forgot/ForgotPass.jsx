@@ -23,7 +23,6 @@ function ForgotPassPage() {
 			});
 			message.success('Send forgot password notificate successfully');
 			formForgotPass.resetFields();
-			navigate('/login');
 		} catch (error) {
 			console.log(error);
 			message.error('Failed to send forgot password notificate');

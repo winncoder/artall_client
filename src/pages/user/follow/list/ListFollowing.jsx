@@ -107,7 +107,7 @@ function ListFollowing({
 						{followsData.length > 0 ? (
 							followsData.map((follow) => (
 								<div className="follower-item" key={follow.id}>
-									<a href={`/${follow.followingId}`}>
+									<a href={`/profile/${follow.followingId}`}>
 										<Avatar
 											size={40}
 											className="follower-avatar"
@@ -116,7 +116,7 @@ function ListFollowing({
 									</a>
 									<div className="follower-info">
 										<a
-											href={`/${follow.followingId}`}
+											href={`/profile/${follow.followingId}`}
 											className="follower-username"
 										>
 											{follow.following.username}

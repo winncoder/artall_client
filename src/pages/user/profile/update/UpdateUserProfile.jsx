@@ -182,7 +182,6 @@ const UpdateUserProfile = () => {
 				userProfileId: userProfileId,
 			});
 			message.success('Profile updated successfully');
-			formUpdate.resetFields();
 		} catch (error) {
 			console.log(error);
 			message.error('Failed to update Profile');

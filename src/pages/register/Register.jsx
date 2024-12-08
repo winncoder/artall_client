@@ -75,6 +75,7 @@ function RegisterPage() {
 			}}
 		>
 			<Col span={24} style={{ textAlign: 'center' }}>
+				<Row className="background-image"></Row>
 				<Title level={2}>Register your account</Title>
 				<Form
 					form={formRegister}

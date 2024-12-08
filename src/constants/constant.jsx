@@ -16,6 +16,7 @@ export const API_URL = {
 	COMMENT: '/comment',
 	COMMENTLIKE: '/like-comment',
 	TOGGLE_COMMENTLIKE: '/like-comment/toggle',
+	DONATION: '/donation',
 };
 
 export const DATE_TIME = {

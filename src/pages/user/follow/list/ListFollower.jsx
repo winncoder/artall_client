@@ -100,7 +100,7 @@ function ListFollower({ isListFollowerModalOpen, setIsListFollowerModalOpen }) {
 					{followsData?.length > 0 ? (
 						followsData.map((follow) => (
 							<div className="follower-item" key={follow.id}>
-								<a href={`/${follow.followerId}`}>
+								<a href={`/profile/${follow.followerId}`}>
 									<Avatar
 										size={40}
 										className="follower-avatar"
@@ -109,7 +109,7 @@ function ListFollower({ isListFollowerModalOpen, setIsListFollowerModalOpen }) {
 								</a>
 								<div className="follower-info">
 									<a
-										href={`/${follow.followerId}`}
+										href={`/profile/${follow.followerId}`}
 										className="follower-username"
 									>
 										{follow.follower.username}

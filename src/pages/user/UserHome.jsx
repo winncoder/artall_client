@@ -14,11 +14,11 @@ import {
 import { EllipsisOutlined, DownOutlined } from '@ant-design/icons';
 import { useState, useEffect, useContext } from 'react';
 import SuggestedList from '../../components/suggested/SuggestedList';
-import { useGetPosts } from '../../hooks/usePost';
+import { useGetRandomPosts } from '../../hooks/usePost';
 import LazyLoad from 'react-lazyload';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import PostSkeletonLoader from '../../components/loading/skeletonLoader/PostSkeleton';
-import PostDetail from './post/detail/PostDetail';
+import PostModal from './post/modal/PostModal';
 import UpdatePost from './post/update/UpdatePost';
 import CreateCmt from './comment/create/CreateCmt';
 import DeletePost from './post/delete/DeletePost';
@@ -46,7 +46,7 @@ function UserHome() {
 
 	const [table, setTable] = useState({
 		page: 1,
-		take: 2,
+		take: 10,
 	});
 
 	const paginationOptions = {
@@ -55,10 +55,11 @@ function UserHome() {
 	};
 
 	const { allPosts, setAllPosts } = useContext(PostContext);
-	const { data: post } = useGetPosts(paginationOptions);
+	const { data: post } = useGetRandomPosts(paginationOptions);
 	// const [allPosts, setAllPosts] = useState([]);
 	const [hasMore, setHasMore] = useState(true);
 	const [selectedPost, setSelectedPost] = useState(null);
+	console.log('selectedPost', selectedPost);
 
 	useEffect(() => {
 		if (post) {
@@ -103,7 +104,7 @@ function UserHome() {
 
 	const handleNavigate = (userId) => {
 		if (userId) {
-			navigate(`/${userId}`);
+			navigate(`/profile/${userId}`);
 		} else {
 			console.error('User ID is not provided');
 		}
@@ -150,7 +151,7 @@ function UserHome() {
 
 	return (
 		<Row
-			style={{ justifyContent: 'center', padding: '24px 100px' }}
+			style={{ justifyContent: 'center', padding: '24px 100px', margin: '0px' }}
 			gutter={[16, 16]}
 		>
 			<Col
@@ -203,9 +204,7 @@ function UserHome() {
 											/>
 											<div>
 												<a
-													href={
-														post?.userInfo?.id ? `/${post.userInfo.id}` : '#'
-													}
+													href={`/profile/${post.userInfo.id}`}
 													style={{ color: 'black', fontWeight: '600' }}
 												>
 													{post?.userInfo?.username}
@@ -293,9 +292,7 @@ function UserHome() {
 													borderBottom: '1px solid #f0f0f0',
 												}}
 												onClick={() => {
-													setSelectedPost(post);
-													setIsPostModalVisible(true);
-													handlePostModalClose();
+													navigate(`/post/${post.id}`);
 												}}
 											>
 												Go to post
@@ -398,7 +395,7 @@ function UserHome() {
 											onClick={() => setIsCreateDonateModalVisible(true)}
 										>
 											<img
-												src="https://res.cloudinary.com/dekmn1kko/image/upload/v1727257105/icon/share-icon.png"
+												src="https://res.cloudinary.com/dekmn1kko/image/upload/v1732977639/icon/donate-icon.png"
 												alt="Share"
 												style={{
 													width: '27px',
@@ -425,7 +422,9 @@ function UserHome() {
 											{getLikeCountText(post?.likeCount)}
 										</p>
 										{/* Donate */}
-										<p style={{ fontWeight: '600', margin: '10px 0' }}>1000$</p>
+										<p style={{ fontWeight: '600', margin: '10px 0' }}>
+											{post?.totalDonation?.toLocaleString('vi-VN')} VND
+										</p>
 									</div>
 
 									{/* Username - Caption */}
@@ -470,7 +469,7 @@ function UserHome() {
 				/>
 
 				{/* Modal for Post Detail */}
-				<PostDetail
+				<PostModal
 					isPostDetailModalOpen={isPostModalVisible}
 					setIsPostDetailModalOpen={setIsPostModalVisible}
 					setAllPosts={setAllPosts}

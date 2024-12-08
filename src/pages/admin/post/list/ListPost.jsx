@@ -21,7 +21,11 @@ import {
 	RollbackOutlined,
 } from '@ant-design/icons';
 import Pagination from '../../../../components/pagination/Pagination';
-import { useGetPosts, useDeletePost } from '../../../../hooks/usePost';
+import {
+	useGetPosts,
+	useDeletePost,
+	useRestorePost,
+} from '../../../../hooks/usePost';
 import { useGetPostsDeleted } from '../../../../hooks/usePost';
 import PostDetail from '../detail/PostDetail';
 import LoadingBar from '../../../../components/loading/loadingbar/LoadingBar';
@@ -141,6 +145,32 @@ const ListPosts = () => {
 		});
 	};
 
+	const { mutate: restorePost } = useRestorePost();
+	const handleRestorePostOk = async (record) => {
+		try {
+			setIsLoadingBar(true);
+			const postId = record.key;
+			console.log('Delete post with ID:', postId);
+			await new Promise((resolve, reject) => {
+				restorePost(
+					{ postId },
+					{
+						onSuccess: resolve,
+						onError: reject,
+					},
+				);
+			});
+
+			// Sau khi tạo bài viết thành công
+			message.success('Post restore successfully');
+		} catch (error) {
+			console.error(error);
+			message.error('Failed to restore Post');
+		} finally {
+			setIsLoadingBar(false);
+		}
+	};
+
 	const columns = [
 		{
 			title: 'Media',
@@ -252,7 +282,7 @@ const ListPosts = () => {
 						<Button
 							type="link"
 							icon={<RollbackOutlined />}
-							onClick={() => record}
+							onClick={() => handleRestorePostOk(record)}
 						/>
 					)}
 					<Button

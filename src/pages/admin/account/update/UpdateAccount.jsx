@@ -60,7 +60,6 @@ const UpdateAccount = () => {
 	);
 
 	const handleUploadProfilePicture = (info) => {
-		// Cập nhật ảnh xem trước trong modal
 		setProfilePicture(info.file);
 		const file = info.file?.originFileObj;
 
@@ -77,13 +76,11 @@ const UpdateAccount = () => {
 				const reader = new FileReader();
 
 				reader.onload = (e) => {
-					// Hiển thị ảnh xem trước từ FileReader
 					setPreviewProfilePicture(e.target.result);
 				};
 
-				// Đọc file dưới dạng URL
 				reader.readAsDataURL(file);
-				setProfilePicture(file); // Cập nhật file cho profilePicture
+				setProfilePicture(file);
 			} else {
 				message.error('Invalid file type. Please upload an image.');
 				console.error('Invalid file type selected', fileType);
@@ -92,8 +89,6 @@ const UpdateAccount = () => {
 			message.error('No file selected');
 			console.error('No file selected');
 		}
-
-		// Lưu ảnh vào profilePicture nếu cần thiết cho các thao tác khác
 	};
 
 	const showModal = () => {
@@ -109,9 +104,7 @@ const UpdateAccount = () => {
 
 			console.log(res);
 
-			// Cập nhật trạng thái của ảnh đại diện để hiển thị ảnh mới
 			const newProfilePictureUrl = URL.createObjectURL(profilePicture);
-			// Cập nhật trạng thái của user để hiển thị ảnh mới
 			setProfilePicture(newProfilePictureUrl);
 
 			message.success('Profile photo updated successfully');
@@ -183,7 +176,6 @@ const UpdateAccount = () => {
 				userProfileId: userProfileId,
 			});
 			message.success('Profile updated successfully');
-			formUpdate.resetFields();
 		} catch (error) {
 			console.log(error);
 			message.error('Failed to update Profile');

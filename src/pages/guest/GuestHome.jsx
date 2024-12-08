@@ -282,7 +282,7 @@ function GuestHome() {
 											}}
 										>
 											<img
-												src="https://res.cloudinary.com/dekmn1kko/image/upload/v1727257105/icon/share-icon.png"
+												src="https://res.cloudinary.com/dekmn1kko/image/upload/v1732977639/icon/donate-icon.png"
 												alt="Share"
 												style={{
 													width: '27px',

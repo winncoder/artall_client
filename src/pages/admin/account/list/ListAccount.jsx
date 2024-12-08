@@ -25,6 +25,7 @@ import {
 	useGetUsers,
 	useDeleteUserInfo,
 	useGetUsersDeleted,
+	useRestoreUser,
 } from '../../../../hooks/useUser';
 import LoadingBar from '../../../../components/loading/loadingbar/LoadingBar';
 import { useNavigate } from 'react-router-dom';
@@ -137,6 +138,32 @@ const ListAccounts = () => {
 				setIsLoadingBar(false);
 			},
 		});
+	};
+
+	const { mutate: restoreUser } = useRestoreUser();
+	const handleRestoreUserOk = async (record) => {
+		try {
+			setIsLoadingBar(true);
+			const userId = record.key;
+			console.log('Delete post with ID:', userId);
+			await new Promise((resolve, reject) => {
+				restoreUser(
+					{ userId },
+					{
+						onSuccess: resolve,
+						onError: reject,
+					},
+				);
+			});
+
+			// Sau khi tạo bài viết thành công
+			message.success('User restore successfully');
+		} catch (error) {
+			console.error(error);
+			message.error('Failed to restore User');
+		} finally {
+			setIsLoadingBar(false);
+		}
 	};
 
 	const navigate = useNavigate();
@@ -252,7 +279,7 @@ const ListAccounts = () => {
 						<Button
 							type="link"
 							icon={<RollbackOutlined />}
-							onClick={() => console.log(record)}
+							onClick={() => handleRestoreUserOk(record)}
 						/>
 					)}
 					<Button

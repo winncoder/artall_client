@@ -14,7 +14,7 @@ import ToggleCommentLike from '../../commentLike/toggle/ToggleCommentLike';
 
 const { TextArea } = Input;
 
-function CommentUpdate({ postId, isPostDetailModalOpen }) {
+function CommentUpdateDetail({ postId }) {
 	useCheckAuthorization('user');
 	const access_token = localStorage.getItem('access_token');
 	const userId = jwtDecode(access_token).sub;
@@ -35,20 +35,11 @@ function CommentUpdate({ postId, isPostDetailModalOpen }) {
 
 	const [commentsByPost, setCommentsByPost] = useState({});
 	const [isLoadingMore, setIsLoadingMore] = useState(false);
-	const {
-		data: comment,
-		isLoading,
-		refetch,
-	} = useGetComments(paginationOptions);
+	const { data: comment, isLoading } = useGetComments(paginationOptions);
 
+	console.log('comment', comment);
 	useEffect(() => {
-		if (isPostDetailModalOpen) {
-			refetch();
-		}
-	}, [isPostDetailModalOpen, refetch]);
-
-	useEffect(() => {
-		if (comment && isPostDetailModalOpen) {
+		if (comment) {
 			setCommentsByPost((prevCommentsByPost) => {
 				const uniqueComments = new Map(
 					(prevCommentsByPost[postId] || []).map((c) => [c.id, c]),
@@ -63,7 +54,7 @@ function CommentUpdate({ postId, isPostDetailModalOpen }) {
 				};
 			});
 		}
-	}, [comment, isPostDetailModalOpen, postId, table.page]);
+	}, [comment, postId, table.page]);
 
 	const handleLoadMoreComments = () => {
 		setIsLoadingMore(true);
@@ -73,21 +64,17 @@ function CommentUpdate({ postId, isPostDetailModalOpen }) {
 		}));
 	};
 
-	useEffect(() => {
-		if (isPostDetailModalOpen) {
-			setTable({ page: 1, take: 5 });
-		} else {
-			setCommentsByPost((prevCommentsByPost) => ({
-				...prevCommentsByPost,
-				[postId]: [],
-			}));
-			setTable({ page: 1, take: 5 });
-		}
-	}, [postId, isPostDetailModalOpen]);
-
-	const displayedComments = isPostDetailModalOpen
-		? commentsByPost[postId] || []
-		: null;
+	// useEffect(() => {
+	// 	if (isPostDetailModalOpen) {
+	// 		setTable({ page: 1, take: 5 });
+	// 	} else {
+	// 		setCommentsByPost((prevCommentsByPost) => ({
+	// 			...prevCommentsByPost,
+	// 			[postId]: [],
+	// 		}));
+	// 		setTable({ page: 1, take: 5 });
+	// 	}
+	// }, [postId, isPostDetailModalOpen]);
 
 	const [editingCommentId, setEditingCommentId] = useState(null);
 	const [editedContent, setEditedContent] = useState('');
@@ -183,8 +170,8 @@ function CommentUpdate({ postId, isPostDetailModalOpen }) {
 				className="comments-section"
 				style={{ overflow: 'hidden', marginTop: '10px', zIndex: 1 }}
 			>
-				{displayedComments && displayedComments.length > 0 ? (
-					displayedComments.map((comment) => (
+				{comment?.data.length > 0 ? (
+					comment?.data.map((comment) => (
 						<Card
 							key={comment?.id}
 							style={{ marginBottom: 16, position: 'relative' }}
@@ -389,9 +376,9 @@ function CommentUpdate({ postId, isPostDetailModalOpen }) {
 	);
 }
 
-CommentUpdate.propTypes = {
+CommentUpdateDetail.propTypes = {
 	postId: PropTypes.string.isRequired,
 	isPostDetailModalOpen: PropTypes.bool.isRequired,
 };
 
-export default CommentUpdate;
+export default CommentUpdateDetail;

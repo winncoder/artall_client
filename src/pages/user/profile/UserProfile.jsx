@@ -9,6 +9,7 @@ import { useState } from 'react';
 import ListFollower from '../../user/follow/list/ListFollower';
 import ListFollowing from '../../user/follow/list/ListFollowing';
 import ToggleFollow from '../../user/follow/toggle/ToggleFollow';
+import ListPProfile from '../../user/post/listPProfile/ListPProfile';
 
 const { Text } = Typography;
 
@@ -117,17 +118,7 @@ function UserProfile() {
 					border: '1px solid #f0f0f0',
 				}}
 			/>
-			<div className="tabs">
-				<Button type="text" className="tab-button active">
-					Posts
-				</Button>
-				<Button type="text" className="tab-button">
-					Saved
-				</Button>
-				<Button type="text" className="tab-button">
-					Tagged
-				</Button>
-			</div>
+			<ListPProfile userId={userId} />
 		</div>
 	);
 }

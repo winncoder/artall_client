@@ -108,15 +108,15 @@ export const AdminSider = () => {
 				selectedKey === '7' ? (
 					<img
 						className="menu-icon"
-						src="https://res.cloudinary.com/dekmn1kko/image/upload/v1726859749/icon/more-selected-icon.png"
-						alt="More"
+						src="https://res.cloudinary.com/dekmn1kko/image/upload/v1732977426/icon/logout-icon.png"
+						alt="Logout"
 						style={{ width: 24 }}
 					/>
 				) : (
 					<img
 						className="menu-icon"
-						src="https://res.cloudinary.com/dekmn1kko/image/upload/v1726859749/icon/more-icon.png"
-						alt="More"
+						src="https://res.cloudinary.com/dekmn1kko/image/upload/v1732977426/icon/logout-icon.png"
+						alt="Logout"
 						style={{ width: 24 }}
 					/>
 				),

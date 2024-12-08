@@ -24,16 +24,28 @@ function LoginPage() {
 	const { mutate: userLogin } = usePostAuth();
 	useCheckAuthentication();
 
-	const handleLogin = () => {
-		setIsLoading(true);
-		console.log('Username:', user.username);
-		console.log('Password:', user.password);
+	const handleLogin = async () => {
+		try {
+			setIsLoading(true); // Bắt đầu quá trình loading
 
-		userLogin({
-			...user,
-		}).finally(() => {
-			setIsLoading(false);
-		});
+			// Gọi hàm userLogin và chờ kết quả trả về
+			await new Promise((resolve, reject) => {
+				userLogin(
+					{ ...user },
+					{
+						onSuccess: resolve,
+						onError: reject,
+					},
+				);
+			});
+
+			// Nếu thành công, trạng thái và điều hướng đã được xử lý trong onSuccess của `usePostAuth`
+		} catch (error) {
+			console.error('Login failed:', error);
+			// Lỗi đã được xử lý trong `onError` của `usePostAuth`
+		} finally {
+			setIsLoading(false); // Tắt loading sau khi hoàn tất
+		}
 	};
 
 	const handleKeyPress = (e) => {

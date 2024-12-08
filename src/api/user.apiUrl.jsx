@@ -110,3 +110,15 @@ export const patchUserProfileAPI = (userProfileId, params) => {
 export const getUserDemographicsAPI = (params) => {
 	return axios.get(`${API_URL.USERPROFILE}/demographics`, { params });
 };
+
+export const postRestoreUserAPI = (userId) => {
+	try {
+		const response = axios.post(
+			`http://localhost:3001/api/user-info/${userId}/restore`,
+		);
+		return response;
+	} catch (error) {
+		console.log(error);
+		throw error;
+	}
+};

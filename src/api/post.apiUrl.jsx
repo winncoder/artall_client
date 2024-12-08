@@ -28,8 +28,21 @@ export const getPostsDeletedAPI = (params, access_token) => {
 	});
 };
 
-export const getRandomPostsAPI = (params) => {
-	return axios.get(API_URL.RANDOM_POST, { params });
+export const getRandomPostsAPI = (params, access_token) => {
+	return axios.get(API_URL.RANDOM_POST, {
+		params,
+		headers: {
+			Authorization: `Bearer ${access_token}`,
+		},
+	});
+};
+
+export const getPostDetailAPI = (postId, access_token) => {
+	return axios.get(`${API_URL.POST}/${postId}`, {
+		headers: {
+			Authorization: `Bearer ${access_token}`,
+		},
+	});
 };
 
 export const postPostAPI = (params) => {
@@ -88,6 +101,18 @@ export const deletePostAPI = (postId) => {
 				Authorization: `Bearer ${access_token}`,
 			},
 		});
+		return response;
+	} catch (error) {
+		console.log(error);
+		throw error;
+	}
+};
+
+export const postRestorePostAPI = (postId) => {
+	try {
+		const response = axios.post(
+			`http://localhost:3002/api/post/${postId}/restore`,
+		);
 		return response;
 	} catch (error) {
 		console.log(error);

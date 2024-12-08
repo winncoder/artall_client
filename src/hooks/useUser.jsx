@@ -12,6 +12,7 @@ import {
 	patchUserInfoAPI,
 	patchUserProfileAPI,
 	getUserDemographicsAPI,
+	postRestoreUserAPI,
 } from '../api/user.apiUrl';
 import { QUERY_KEY } from '../constants/queryKey';
 
@@ -170,4 +171,19 @@ export const useGetUserDemographics = (params) => {
 			return data;
 		},
 	});
+};
+
+export const useRestoreUser = () => {
+	const queryClient = useQueryClient();
+	const mutation = useMutation({
+		mutationFn: ({ userId }) => postRestoreUserAPI(userId),
+		onSuccess: () => {
+			queryClient.invalidateQueries({ queryKey: [QUERY_KEY.USER_RESTORE] });
+			console.log('Restore Success');
+		},
+		onError: (response) => {
+			console.log(response);
+		},
+	});
+	return mutation;
 };

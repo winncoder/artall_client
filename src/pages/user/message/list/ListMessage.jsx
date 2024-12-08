@@ -46,6 +46,12 @@ function ListMessage() {
 			text: 'omg tưởng Tết đi thì gặp, tháng 9 thì bye bye =)))',
 			align: 'right',
 		},
+		{
+			id: 7,
+			sender: 'You',
+			text: 'hi, where are you',
+			align: 'right',
+		},
 	];
 
 	const contacts = [
@@ -81,7 +87,12 @@ function ListMessage() {
 							className={selectedContact === item.id ? 'selected-item' : ''}
 						>
 							<List.Item.Meta
-								avatar={<Avatar style={{ height: '50px', width: '50px' }} />}
+								avatar={
+									<Avatar
+										src="https://res.cloudinary.com/dnjkwuc7p/image/upload/v1712043752/avatar/default_avatar.png"
+										style={{ height: '50px', width: '50px' }}
+									/>
+								}
 								title={item.name}
 								description={`Active ${item.active} ago`}
 							/>

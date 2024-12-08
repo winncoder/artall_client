@@ -9,7 +9,7 @@ import { message } from 'antd';
 export const usePostAuth = () => {
 	const navigate = useNavigate();
 	const queryClient = useQueryClient();
-	const mutation = useMutation({
+	return useMutation({
 		mutationFn: (auth) => postAuthAPI(auth),
 		onSuccess: (data) => {
 			message.success('Login success');
@@ -40,7 +40,6 @@ export const usePostAuth = () => {
 			}
 		},
 	});
-	return mutation;
 };
 
 export const useForgotPass = () => {

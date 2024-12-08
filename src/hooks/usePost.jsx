@@ -3,10 +3,12 @@ import {
 	getPostsAPI,
 	getTotalPostsAPI,
 	getRandomPostsAPI,
+	getPostDetailAPI,
 	postPostAPI,
 	patchPostAPI,
 	deletePostAPI,
 	getPostsDeletedAPI,
+	postRestorePostAPI,
 } from '../api/post.apiUrl';
 import { QUERY_KEY } from '../constants/queryKey';
 import { useContext } from 'react';
@@ -30,7 +32,13 @@ export const useGetPostTotal = (params) => {
 export const useGetPosts = (params) => {
 	const access_token = localStorage.getItem('access_token');
 	return useQuery({
-		queryKey: [QUERY_KEY.POST, params?.page, params?.take, params?.content],
+		queryKey: [
+			QUERY_KEY.POST,
+			params?.page,
+			params?.take,
+			params?.content,
+			params?.userIdProfile,
+		],
 		queryFn: async () => {
 			try {
 				const { data } = await getPostsAPI(params, access_token);
@@ -59,10 +67,22 @@ export const useGetPostsDeleted = (params) => {
 };
 
 export const useGetRandomPosts = (params) => {
+	const access_token = localStorage.getItem('access_token');
 	return useQuery({
 		queryKey: [QUERY_KEY.POST, params?.page, params?.take],
 		queryFn: async () => {
-			const { data } = await getRandomPostsAPI(params);
+			const { data } = await getRandomPostsAPI(params, access_token);
+			return data;
+		},
+	});
+};
+
+export const useGetPostDetail = (id) => {
+	const access_token = localStorage.getItem('access_token');
+	return useQuery({
+		queryKey: [QUERY_KEY.POST, id],
+		queryFn: async () => {
+			const { data } = await getPostDetailAPI(id, access_token);
 			return data;
 		},
 	});
@@ -114,5 +134,20 @@ export const useDeletePost = () => {
 		},
 	});
 
+	return mutation;
+};
+
+export const useRestorePost = () => {
+	const queryClient = useQueryClient();
+	const mutation = useMutation({
+		mutationFn: ({ postId }) => postRestorePostAPI(postId),
+		onSuccess: () => {
+			queryClient.invalidateQueries({ queryKey: [QUERY_KEY.POST_RESTORE] });
+			console.log('Restore Success');
+		},
+		onError: (response) => {
+			console.log(response);
+		},
+	});
 	return mutation;
 };

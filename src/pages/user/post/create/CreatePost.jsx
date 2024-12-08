@@ -1,5 +1,5 @@
 import './CreatePost.css';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import {
 	Modal,
 	Upload,
@@ -17,7 +17,7 @@ import { useCreatePost } from '../../../../hooks/usePost';
 import { useCheckAuthorization } from '../../../../hooks/useAuth';
 import { useGetUsersInfoDetal } from '../../../../hooks/useUser';
 import { jwtDecode } from 'jwt-decode';
-import { PostContext } from '../../../../components/context/PostContext';
+import LoadingBar from '../../../../components/loading/loadingbar/LoadingBar';
 
 const { TextArea } = Input;
 const { Item } = Form;
@@ -42,7 +42,7 @@ function CreatePost({ isCreatePostModalOpen, setIsCreatePostModalOpen }) {
 
 	const [formCreate] = Form.useForm();
 	const { mutate: createPost } = useCreatePost();
-	const [isLoading, setIsLoading] = useState(false);
+	const [isLoadingBar, setIsLoadingBar] = useState(false);
 
 	const handleUploadMediaPath = (info) => {
 		setfileMediaPathList(info.fileList);
@@ -56,24 +56,34 @@ function CreatePost({ isCreatePostModalOpen, setIsCreatePostModalOpen }) {
 			}
 			const mediaPath = fileMediaPathList.map((item) => item.originFileObj);
 
-			setIsLoading(true); // Bắt đầu quá trình tạo post
+			setIsLoadingBar(true);
+			console.log('isLoading', mediaPath);
 
-			// Gọi API tạo bài viết
-			await createPost({
-				content,
-				mediaPath,
-				userId: userId,
+			// Gọi trực tiếp createPost
+			await new Promise((resolve, reject) => {
+				createPost(
+					{
+						content,
+						mediaPath,
+						userId: userId,
+					},
+					{
+						onSuccess: resolve,
+						onError: reject,
+					},
+				);
 			});
 
+			// Sau khi tạo bài viết thành công
 			message.success('Post created successfully');
 			setContent('');
 			setfileMediaPathList([]);
-			setIsCreatePostModalOpen(false);
 		} catch (error) {
 			console.error(error);
 			message.error('Failed to create Post');
 		} finally {
-			setIsLoading(false); // Kết thúc quá trình tạo post
+			setIsLoadingBar(false);
+			setIsCreatePostModalOpen(false);
 		}
 	};
 
@@ -97,9 +107,8 @@ function CreatePost({ isCreatePostModalOpen, setIsCreatePostModalOpen }) {
 				onCancel={handlePostCreateCancel}
 				closeIcon={false}
 				footer={null}
-				confirmLoading={isLoading}
 			>
-				{/* Navbar với nút Cancel, tiêu đề, và nút Done */}
+				<LoadingBar isLoading={isLoadingBar} />
 				<div className="modal-navbar">
 					<Button onClick={handlePostCreateCancel} type="text">
 						Cancel
