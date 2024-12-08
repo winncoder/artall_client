@@ -88,16 +88,15 @@
 	color: red;
 }
 
-
 .more-post-title {
-    font-size: 16px;
-    margin-bottom: 20px;
-    font-weight: 400;
+	font-size: 16px;
+	margin-bottom: 20px;
+	font-weight: 400;
 	font-family: 'Poppins', sans-serif;
 }
 
 .more-post-title strong {
-    font-weight: 500;
+	font-weight: 500;
 }
 
 .post-detail-row {

@@ -1,11 +1,11 @@
 .background-image {
-    position: fixed;
-    top: 0;
-    left: -179px;
-    width: 130%;
-    height: 61%;
-    z-index: -1;
-    background-size: cover;
-    background-position: center;
-    background-image: url('https://res.cloudinary.com/dh6dvndzn/image/upload/v1709633495/imgLogin.png');
-  }
+	position: fixed;
+	top: 0;
+	left: -179px;
+	width: 130%;
+	height: 61%;
+	z-index: -1;
+	background-size: cover;
+	background-position: center;
+	background-image: url('https://res.cloudinary.com/dh6dvndzn/image/upload/v1709633495/imgLogin.png');
+}
