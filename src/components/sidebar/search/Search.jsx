@@ -42,7 +42,7 @@ export const Search = ({ isSearchOpen }) => {
 				) : filteredUsers.length > 0 ? (
 					filteredUsers.map((user) => (
 						<div className="follower-item" key={user.id}>
-							<a href={`/${user.id}`}>
+							<a href={`/profile/${user.id}`}>
 								<Avatar
 									size={49}
 									className="follower-avatar"
