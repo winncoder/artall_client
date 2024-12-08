@@ -8,7 +8,7 @@ import './Main.css';
 
 const queryClient = new QueryClient();
 
-axios.defaults.baseURL = 'https://localhost:5000/api/';
+axios.defaults.baseURL = 'http://localhost:5000/api/';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<QueryClientProvider client={queryClient}>
