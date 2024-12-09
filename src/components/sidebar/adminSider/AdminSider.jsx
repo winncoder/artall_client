@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Layout, Menu } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { UserOutlined, ProjectOutlined } from '@ant-design/icons';
 
 const { Sider } = Layout;
 
@@ -66,19 +67,9 @@ export const AdminSider = () => {
 			key: '2',
 			icon:
 				selectedKey === '2' ? (
-					<img
-						className="menu-icon"
-						src="https://res.cloudinary.com/dekmn1kko/image/upload/v1726859749/icon/search-selected-icon.png"
-						alt="Search"
-						style={{ width: 24 }}
-					/>
+					<UserOutlined style={{ fontSize: 24, color: '#1890ff' }} /> // Icon cho trạng thái được chọn
 				) : (
-					<img
-						className="menu-icon"
-						src="https://res.cloudinary.com/dekmn1kko/image/upload/v1726856760/icon/search-icon.png"
-						alt="Search"
-						style={{ width: 24 }}
-					/>
+					<UserOutlined style={{ fontSize: 24, color: 'black' }} /> // Icon cho trạng thái chưa được chọn
 				),
 			label: 'Accounts',
 		},
@@ -86,19 +77,9 @@ export const AdminSider = () => {
 			key: '3',
 			icon:
 				selectedKey === '3' ? (
-					<img
-						className="menu-icon"
-						src="https://res.cloudinary.com/dekmn1kko/image/upload/v1726859748/icon/messages-selected-icon.png"
-						alt="Messages"
-						style={{ width: 24 }}
-					/>
+					<ProjectOutlined style={{ fontSize: 24, color: '#1890ff' }} /> // Icon cho trạng thái được chọn
 				) : (
-					<img
-						className="menu-icon"
-						src="https://res.cloudinary.com/dekmn1kko/image/upload/v1726859748/icon/messages-icon.png"
-						alt="Messages"
-						style={{ width: 24 }}
-					/>
+					<ProjectOutlined style={{ fontSize: 24, color: 'black' }} /> // Icon cho trạng thái chưa được chọn
 				),
 			label: 'Posts',
 		},
