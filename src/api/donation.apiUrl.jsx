@@ -41,6 +41,9 @@ export const getDonationStatusAPI = (app_trans_id, amount, userId, postId) => {
 				userId,
 				postId,
 			},
+			headers: {
+				'ngrok-skip-browser-warning': 'true',
+			},
 		},
 	);
 };

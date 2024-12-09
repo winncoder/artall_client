@@ -2,7 +2,12 @@ import axios from 'axios';
 import { API_URL } from '../constants/constant';
 
 export const getFollowAPI = (params) => {
-	return axios.get(API_URL.FOLLOW, { params });
+	return axios.get(API_URL.FOLLOW, {
+		params,
+		headers: {
+			'ngrok-skip-browser-warning': 'true',
+		},
+	});
 };
 
 export const toggleFollowAPI = (params) => {

@@ -119,6 +119,11 @@ export const postRestorePostAPI = (postId) => {
 	try {
 		const response = axios.post(
 			`http://localhost:3002/api/post/${postId}/restore`,
+			{
+				headers: {
+					'ngrok-skip-browser-warning': 'true',
+				},
+			},
 		);
 		return response;
 	} catch (error) {

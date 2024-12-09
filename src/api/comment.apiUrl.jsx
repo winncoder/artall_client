@@ -26,6 +26,7 @@ export const postCommentAPI = (params) => {
 		const response = axios.post(API_URL.COMMENT, formData, {
 			headers: {
 				'Content-Type': 'multipart/form-data',
+				'ngrok-skip-browser-warning': 'true',
 			},
 		});
 		return response;

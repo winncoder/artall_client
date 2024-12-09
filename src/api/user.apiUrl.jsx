@@ -3,19 +3,38 @@ import { API_URL } from '../constants/constant';
 
 // USER
 export const getUsersAPI = (params) => {
-	return axios.get(`${API_URL.USER}`, { params });
+	return axios.get(`${API_URL.USER}`, {
+		params,
+		headers: {
+			'ngrok-skip-browser-warning': 'true',
+		},
+	});
 };
 
 export const getTotalUsersAPI = (params) => {
-	return axios.get(`${API_URL.USERINFO}/total`, { params });
+	return axios.get(`${API_URL.USERINFO}/total`, {
+		params,
+		headers: {
+			'ngrok-skip-browser-warning': 'true',
+		},
+	});
 };
 
 export const getUsersDeletedAPI = (params) => {
-	return axios.get(`${API_URL.USER}/deleted`, { params });
+	return axios.get(`${API_URL.USER}/deleted`, {
+		params,
+		headers: {
+			'ngrok-skip-browser-warning': 'true',
+		},
+	});
 };
 
 export const getUserDetailAPI = (userId) => {
-	return axios.get(`${API_URL.USER}/${userId}`);
+	return axios.get(`${API_URL.USER}/${userId}`, {
+		headers: {
+			'ngrok-skip-browser-warning': 'true',
+		},
+	});
 };
 
 export const postUserApI = (params) => {
@@ -34,9 +53,14 @@ export const postUserApI = (params) => {
 	}
 };
 
-//USER INFO
+// USER INFO
 export const getUsersInfoAPI = (params) => {
-	return axios.get(API_URL.USERINFO, { params });
+	return axios.get(API_URL.USERINFO, {
+		params,
+		headers: {
+			'ngrok-skip-browser-warning': 'true',
+		},
+	});
 };
 
 export const getSuggestedUsersAPI = (params) => {
@@ -121,13 +145,23 @@ export const patchUserProfileAPI = (userProfileId, params) => {
 };
 
 export const getUserDemographicsAPI = (params) => {
-	return axios.get(`${API_URL.USERPROFILE}/demographics`, { params });
+	return axios.get(`${API_URL.USERPROFILE}/demographics`, {
+		params,
+		headers: {
+			'ngrok-skip-browser-warning': 'true',
+		},
+	});
 };
 
 export const postRestoreUserAPI = (userId) => {
 	try {
 		const response = axios.post(
 			`http://localhost:3001/api/user-info/${userId}/restore`,
+			{
+				headers: {
+					'ngrok-skip-browser-warning': 'true',
+				},
+			},
 		);
 		return response;
 	} catch (error) {
