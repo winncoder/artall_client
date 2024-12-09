@@ -11,6 +11,8 @@ import CommentUpdate from '../../comment/update/UpdateComment';
 import DeletePost from '../delete/DeletePost';
 import UpdatePost from '../update/UpdatePost';
 import ToggleLike from '../../like/toggle/ToggleLike';
+import CreateDonate from '../../donate/create/CreateDonate';
+import { useNavigate } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
 function PostModal({
@@ -47,6 +49,11 @@ function PostModal({
 		setIsLoading(false);
 		handlePostDetailCancel();
 	};
+
+	const [isCreateDonateModalVisible, setIsCreateDonateModalVisible] =
+		useState(false);
+
+	const navigate = useNavigate();
 
 	return (
 		<>
@@ -179,6 +186,20 @@ function PostModal({
 								>
 									Unfollow
 								</div>
+								<div
+									style={{
+										padding: '12px 0',
+										cursor: 'pointer',
+										borderBottom: '1px solid #f0f0f0',
+									}}
+									onClick={() => {
+										navigate(`/post/${post.id}`);
+										handlePostModalClose();
+										handlePostDetailCancel();
+									}}
+								>
+									Go to post
+								</div>
 								{userId === post?.userId && (
 									<>
 										<div
@@ -308,14 +329,16 @@ function PostModal({
 									/>
 								</Button>
 
-								{/* Share Icon */}
+								{/* Donate Icon */}
 								<Button
 									style={{
+										marginLeft: 'auto',
 										background: 'none',
 										border: 'none',
 										padding: 0,
 										cursor: 'pointer',
 									}}
+									onClick={() => setIsCreateDonateModalVisible(true)}
 								>
 									<img
 										src="https://res.cloudinary.com/dekmn1kko/image/upload/v1732977639/icon/donate-icon.png"
@@ -330,15 +353,28 @@ function PostModal({
 										onMouseLeave={(e) => (e.target.style.opacity = 0.8)}
 									/>
 								</Button>
+								<CreateDonate
+									postId={post?.id}
+									isCreateDonateModalOpen={isCreateDonateModalVisible}
+									setIsCreateDonateModalOpen={setIsCreateDonateModalVisible}
+								/>
 							</div>
 
 							<div style={{ padding: '10px' }}>
-								{/* Likes */}
-								<p style={{ fontWeight: '600' }}>
-									{post?.likeCount
-										? `${post.likeCount} ${post.likeCount === 1 ? 'like' : 'likes'}`
-										: 'Be the first to like this'}
-								</p>
+								<div
+									style={{ display: 'flex', justifyContent: 'space-between' }}
+								>
+									{/* Likes */}
+									<p style={{ fontWeight: '600' }}>
+										{post?.likeCount
+											? `${post.likeCount} ${post.likeCount === 1 ? 'like' : 'likes'}`
+											: 'Be the first to like this'}
+									</p>
+									{/* Donate */}
+									<p style={{ fontWeight: '600' }}>
+										{post?.totalDonation?.toLocaleString('vi-VN')} VND
+									</p>
+								</div>
 
 								{/* Thời gian đăng bài */}
 								{post?.createdAt && (

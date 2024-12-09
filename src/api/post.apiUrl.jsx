@@ -110,9 +110,7 @@ export const deletePostAPI = (postId) => {
 
 export const postRestorePostAPI = (postId) => {
 	try {
-		const response = axios.post(
-			`http://localhost:3002/api/post/${postId}/restore`,
-		);
+		const response = axios.post(`${API_URL.POST}/${postId}/restore`);
 		return response;
 	} catch (error) {
 		console.log(error);

@@ -137,9 +137,7 @@ p {
 	border: 1px solid #d9d9d9; /* Thêm viền cho menu */
 }
 
-:where(.css-1wwf28x).ant-dropdown
-	.ant-dropdown-menu
-	.ant-dropdown-menu-item {
+:where(.css-1wwf28x).ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item {
 	font-size: 14px;
 	font-family: 'Poppins', sans-serif;
 	padding: 10px 20px; /* Thêm padding cho menu */

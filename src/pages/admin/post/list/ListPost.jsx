@@ -19,6 +19,7 @@ import {
 	DeleteOutlined,
 	ExportOutlined,
 	RollbackOutlined,
+	ReloadOutlined,
 } from '@ant-design/icons';
 import Pagination from '../../../../components/pagination/Pagination';
 import {
@@ -75,10 +76,24 @@ const ListPosts = () => {
 		refetch: refetchPosts,
 	} = useGetPosts({ ...paginationOptions, content: content });
 
-	const { data: postsDeleted, isLoading: isLoadingPostsDeleted } =
-		useGetPostsDeleted({ ...paginationOptions, content: content });
+	const {
+		data: postsDeleted,
+		isLoading: isLoadingPostsDeleted,
+		refetch: refetchPostsDeleted,
+	} = useGetPostsDeleted({ ...paginationOptions, content: content });
 
 	const isLoading = isLoadingPosts || isLoadingPostsDeleted;
+
+	const handleReload = async () => {
+		setLoading(true); // Hiển thị trạng thái loading
+		try {
+			await Promise.all([refetchPosts(), refetchPostsDeleted()]); // Gọi cả hai API đồng thời
+		} catch (error) {
+			console.error('Error reloading data:', error);
+		} finally {
+			setLoading(false); // Tắt trạng thái loading
+		}
+	};
 
 	const formattedData =
 		posts?.data?.map((item) => ({
@@ -136,6 +151,7 @@ const ListPosts = () => {
 				setIsLoadingBar(false);
 
 				refetchPosts();
+				refetchPostsDeleted();
 			},
 			onError: (error) => {
 				console.error('Error deleting post:', error);
@@ -168,6 +184,8 @@ const ListPosts = () => {
 			message.error('Failed to restore Post');
 		} finally {
 			setIsLoadingBar(false);
+			refetchPosts();
+			refetchPostsDeleted();
 		}
 	};
 
@@ -330,12 +348,13 @@ const ListPosts = () => {
 			}
 
 			message.success('Selected posts deleted successfully.');
-			refetchPosts();
 			setSelectedRowKeys([]);
 		} catch (error) {
 			message.error('Failed to delete some posts. Please try again.');
 		} finally {
 			setLoading(false);
+			refetchPosts();
+			refetchPostsDeleted();
 		}
 	};
 
@@ -407,15 +426,18 @@ const ListPosts = () => {
 					<Button
 						className="btn-icon-admin"
 						style={{ marginRight: 8 }}
-						icon={<DeleteOutlined />}
-						onClick={start}
-						disabled={!hasSelected}
+						icon={<ReloadOutlined />}
+						onClick={handleReload}
+						disabled={isLoading}
 						loading={loading}
 					/>
 					<Button
 						className="btn-icon-admin"
-						style={{ marginRight: 15 }}
-						icon={<ExportOutlined />}
+						style={{ marginRight: 8 }}
+						icon={<DeleteOutlined />}
+						onClick={start}
+						disabled={!hasSelected}
+						loading={loading}
 					/>
 
 					<Dropdown

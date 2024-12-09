@@ -26,7 +26,7 @@ export const usePostAuth = () => {
 					break;
 				}
 				default: {
-					navigate('/guest');
+					navigate('/403');
 					break;
 				}
 			}

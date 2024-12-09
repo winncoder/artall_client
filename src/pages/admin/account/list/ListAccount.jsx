@@ -19,6 +19,7 @@ import {
 	ExportOutlined,
 	RollbackOutlined,
 	SearchOutlined,
+	ReloadOutlined,
 } from '@ant-design/icons';
 import Pagination from '../../../../components/pagination/Pagination';
 import {
@@ -71,10 +72,24 @@ const ListAccounts = () => {
 		refetch: refetchUsers,
 	} = useGetUsers({ ...paginationOptions, username: username });
 
-	const { data: usersDeleted, isLoading: isLoadingUsersDeleted } =
-		useGetUsersDeleted({ ...paginationOptions, username: username });
+	const {
+		data: usersDeleted,
+		isLoading: isLoadingUsersDeleted,
+		refetch: refetchUsersDeleted,
+	} = useGetUsersDeleted({ ...paginationOptions, username: username });
 
 	const isLoading = isLoadingUsers || isLoadingUsersDeleted;
+
+	const handleReload = async () => {
+		setLoading(true); // Hiển thị trạng thái loading
+		try {
+			await Promise.all([refetchUsers(), refetchUsersDeleted()]); // Gọi cả hai API đồng thời
+		} catch (error) {
+			console.error('Error reloading data:', error);
+		} finally {
+			setLoading(false); // Tắt trạng thái loading
+		}
+	};
 
 	const formattedData =
 		users?.data?.map((item) => ({
@@ -131,6 +146,7 @@ const ListAccounts = () => {
 				message.success('User deleted successfully');
 				setIsLoadingBar(false);
 				refetchUsers();
+				refetchUsersDeleted();
 			},
 			onError: (error) => {
 				console.error('Error deleting user:', error);
@@ -163,6 +179,8 @@ const ListAccounts = () => {
 			message.error('Failed to restore User');
 		} finally {
 			setIsLoadingBar(false);
+			refetchUsersDeleted();
+			refetchUsers();
 		}
 	};
 
@@ -360,15 +378,18 @@ const ListAccounts = () => {
 					<Button
 						className="btn-icon-admin"
 						style={{ marginRight: 8 }}
-						icon={<DeleteOutlined />}
-						onClick={start}
-						disabled={!hasSelected}
+						icon={<ReloadOutlined />}
+						onClick={handleReload}
+						disabled={isLoading}
 						loading={loading}
 					/>
 					<Button
 						className="btn-icon-admin"
-						style={{ marginRight: 15 }}
-						icon={<ExportOutlined />}
+						style={{ marginRight: 8 }}
+						icon={<DeleteOutlined />}
+						onClick={start}
+						disabled={!hasSelected}
+						loading={loading}
 					/>
 					<Button style={{ marginRight: 15 }} className="btn-create-post">
 						Create User

@@ -9,6 +9,7 @@ import {
 	Row,
 	Col,
 	Divider,
+	Spin,
 } from 'antd';
 import { useCheckAuthorization } from '../../../../hooks/useAuth';
 import { useGetPostDetail } from '../../../../hooks/usePost';
@@ -24,6 +25,8 @@ import ToggleLike from '../../like/toggle/ToggleLike';
 import { useParams } from 'react-router-dom';
 import CreateDonate from '../../donate/create/CreateDonate';
 import ListPProfile from '../../post/listPProfile/ListPProfile';
+import { useNavigate } from 'react-router-dom';
+import LoadingBar from '../../../../components/loading/loadingbar/LoadingBar';
 
 // eslint-disable-next-line react/prop-types
 function PostDetail() {
@@ -31,15 +34,18 @@ function PostDetail() {
 	const access_token = localStorage.getItem('access_token');
 	const { postId } = useParams();
 	const userId = jwtDecode(access_token).sub;
-	const { data: post } = useGetPostDetail(postId);
+	const { data: post, isLoading } = useGetPostDetail(postId);
 	const { data: userInfo } = useGetUsersInfoDetal(userId);
 	console.log('post', post);
 	// loading bar
-	const [isLoading, setIsLoading] = useState(false);
+	const [isLoadingBar, setIsLoadingBar] = useState(false);
 	const [isUpdateVisible, setIsUpdateVisible] = useState(false);
+	const navigate = useNavigate();
 
-	const handleDeleteSuccess = (postId) => {
-		setIsLoading(false);
+	const handleDeleteSuccess = () => {
+		setIsLoadingBar(false);
+		handlePostModalClose();
+		navigate(`/`);
 	};
 
 	const [isPostOptionVisible, setIsPostOptionVisible] = useState(false);
@@ -62,6 +68,7 @@ function PostDetail() {
 				justify="center"
 				gutter={[16]}
 			>
+				<LoadingBar isLoading={isLoadingBar} />
 				<Col lg={18}>
 					<div
 						className="post-detail-container"
@@ -77,7 +84,9 @@ function PostDetail() {
 							className="post-detail-image"
 							style={{ flex: 2, display: 'flex' }}
 						>
-							{post && post.mediaPath && post.mediaPath.length > 1 ? (
+							{isLoading ? (
+								<Spin size="large" />
+							) : post && post.mediaPath && post.mediaPath.length > 1 ? (
 								<Carousel
 									afterChange={() => window.dispatchEvent(new Event('resize'))}
 									arrows
@@ -200,7 +209,7 @@ function PostDetail() {
 											<DeletePost
 												postId={post?.id}
 												onDeleteSuccess={handleDeleteSuccess}
-												setLoading={setIsLoading}
+												setLoading={setIsLoadingBar}
 											/>
 										</>
 									)}
@@ -316,6 +325,7 @@ function PostDetail() {
 									{/* Donate Icon */}
 									<Button
 										style={{
+											marginLeft: 'auto',
 											background: 'none',
 											border: 'none',
 											padding: 0,
@@ -344,12 +354,20 @@ function PostDetail() {
 								</div>
 
 								<div style={{ padding: '10px' }}>
-									{/* Likes */}
-									<p style={{ fontWeight: '600' }}>
-										{post?.likeCount
-											? `${post.likeCount} ${post.likeCount === 1 ? 'like' : 'likes'}`
-											: 'Be the first to like this'}
-									</p>
+									<div
+										style={{ display: 'flex', justifyContent: 'space-between' }}
+									>
+										{/* Likes */}
+										<p style={{ fontWeight: '600' }}>
+											{post?.likeCount
+												? `${post.likeCount} ${post.likeCount === 1 ? 'like' : 'likes'}`
+												: 'Be the first to like this'}
+										</p>
+										{/* Donate */}
+										<p style={{ fontWeight: '600' }}>
+											{post?.totalDonation?.toLocaleString('vi-VN')} VND
+										</p>
+									</div>
 
 									{/* Thời gian đăng bài */}
 									{post?.createdAt && (

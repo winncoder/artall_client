@@ -20,10 +20,6 @@ const Router = createBrowserRouter([
 				children: [...UserRouter],
 			},
 			{
-				path: 'guest',
-				children: [...GuestRouter],
-			},
-			{
 				path: 'admin',
 				children: [...AdminRouter],
 			},
