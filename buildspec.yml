@@ -8,11 +8,17 @@ phases:
       - echo "Installing dependencies using Yarn"
       - yarn install --frozen-lockfile
       - echo "Done installing dependencies ====>"
+      
   build:
     commands:
       - echo "Building the React Project"
       - yarn build
       - echo "Done building the project ==> Exporting artifacts"
+
+  post_build:
+    commands:
+      - echo "Invalidating CloudFront cache"
+      - aws cloudfront create-invalidation --distribution-id <distribution-id> --paths "/*"
 
 artifacts:
   files:
