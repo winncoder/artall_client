@@ -33,6 +33,7 @@ import CreateDonate from './donate/create/CreateDonate';
 function UserHome() {
 	const access_token = localStorage.getItem('access_token');
 	const userId = jwtDecode(access_token).sub;
+	console.log('userId', userId);
 
 	const [selectedFeed, setSelectedFeed] = useState('For you');
 	const [isPostOptionVisible, setIsPostOptionVisible] = useState(false);

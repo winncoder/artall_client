@@ -33,6 +33,7 @@ export const getRandomPostsAPI = (params, access_token) => {
 		params,
 		headers: {
 			Authorization: `Bearer ${access_token}`,
+			'ngrok-skip-browser-warning': 'true',
 		},
 	});
 };
