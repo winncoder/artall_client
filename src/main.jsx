@@ -8,8 +8,7 @@ import './Main.css';
 
 const queryClient = new QueryClient();
 
-axios.defaults.baseURL =
-	'https://64f4-2402-800-6294-490a-45c8-668a-71e1-9113.ngrok-free.app/api/';
+axios.defaults.baseURL = 'http://localhost:5000/api/';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<QueryClientProvider client={queryClient}>
