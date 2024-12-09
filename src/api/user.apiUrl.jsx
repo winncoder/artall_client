@@ -40,11 +40,20 @@ export const getUsersInfoAPI = (params) => {
 };
 
 export const getSuggestedUsersAPI = (params) => {
-	return axios.get(API_URL.SUGGESTED, { params });
+	return axios.get(API_URL.SUGGESTED, {
+		params,
+		headers: {
+			'ngrok-skip-browser-warning': 'true', // Thêm header này
+		},
+	});
 };
 
 export const getUserInfoDetailAPI = (userId) => {
-	return axios.get(`${API_URL.USERINFO}/${userId}`);
+	return axios.get(`${API_URL.USERINFO}/${userId}`, {
+		headers: {
+			'ngrok-skip-browser-warning': 'true', // Thêm header này
+		},
+	});
 };
 
 export const patchUserInfoAPI = (userId, params) => {
