@@ -115,7 +115,6 @@ const UpdateUserProfile = () => {
 
 			message.success('Profile photo updated successfully');
 			setIsModalVisible(false);
-			formUpdate.resetFields();
 		} catch (error) {
 			console.log(error);
 			message.error('Failed to update Profile photo');
