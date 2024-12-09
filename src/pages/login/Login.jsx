@@ -163,7 +163,7 @@ function LoginPage() {
 							<Button
 								onClick={() => {
 									window.location.href =
-										'http://localhost:5000/api/auth/google/login';
+										'https://1938-2402-800-6294-490a-881-cd87-ab4f-dc00.ngrok-free.app/api/auth/google/login';
 								}}
 								style={{
 									width: '100%',

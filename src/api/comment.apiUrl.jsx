@@ -6,6 +6,7 @@ export const getCommentAPI = (params, access_token) => {
 		params,
 		headers: {
 			Authorization: `Bearer ${access_token}`,
+			'ngrok-skip-browser-warning': 'true',
 		},
 	});
 };
@@ -49,6 +50,7 @@ export const patchCommentAPI = (commentId, params) => {
 			headers: {
 				Authorization: `Bearer ${access_token}`,
 				'Content-Type': 'multipart/form-data',
+				'ngrok-skip-browser-warning': 'true',
 			},
 		});
 		return response;
@@ -64,6 +66,7 @@ export const deleteCommentAPI = (commentId) => {
 		const response = axios.delete(`${API_URL.COMMENT}/${commentId}`, {
 			headers: {
 				Authorization: `Bearer ${access_token}`,
+				'ngrok-skip-browser-warning': 'true',
 			},
 		});
 		return response;

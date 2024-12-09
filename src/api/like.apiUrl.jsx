@@ -9,6 +9,7 @@ export const toggleLikeAPI = (params) => {
 		const response = axios.post(API_URL.TOGGLE_LIKE, params, {
 			headers: {
 				Authorization: `Bearer ${access_token}`,
+				'ngrok-skip-browser-warning': 'true',
 			},
 		});
 		return response;

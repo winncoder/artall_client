@@ -24,6 +24,7 @@ export const postUserApI = (params) => {
 		const response = axios.post(API_URL.REGISTER, params, {
 			headers: {
 				Authorization: `Bearer ${access_token}`,
+				'ngrok-skip-browser-warning': 'true',
 			},
 		});
 		return response;
@@ -63,6 +64,7 @@ export const patchUserInfoAPI = (userId, params) => {
 			headers: {
 				Authorization: `Bearer ${access_token}`,
 				'Content-Type': 'multipart/form-data',
+				'ngrok-skip-browser-warning': 'true',
 			},
 		});
 		return response;
@@ -78,6 +80,7 @@ export const deleteUserInfoAPI = (userId) => {
 		const response = axios.delete(`${API_URL.USERINFO}/${userId}`, {
 			headers: {
 				Authorization: `Bearer ${access_token}`,
+				'ngrok-skip-browser-warning': 'true',
 			},
 		});
 		return response;
@@ -97,6 +100,7 @@ export const patchUserProfileAPI = (userProfileId, params) => {
 			{
 				headers: {
 					Authorization: `Bearer ${access_token}`,
+					'ngrok-skip-browser-warning': 'true',
 				},
 			},
 		);

@@ -6,6 +6,7 @@ export const getDonationsAPI = (params, access_token) => {
 		params,
 		headers: {
 			Authorization: `Bearer ${access_token}`,
+			'ngrok-skip-browser-warning': 'true',
 		},
 	});
 };
@@ -19,6 +20,7 @@ export const postPaymentAPI = (params) => {
 			{
 				headers: {
 					Authorization: `Bearer ${access_token}`,
+					'ngrok-skip-browser-warning': 'true',
 				},
 			},
 		);

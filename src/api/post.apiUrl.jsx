@@ -6,6 +6,7 @@ export const getPostsAPI = (params, access_token) => {
 		params,
 		headers: {
 			Authorization: `Bearer ${access_token}`,
+			'ngrok-skip-browser-warning': 'true',
 		},
 	});
 };
@@ -15,6 +16,7 @@ export const getTotalPostsAPI = (params, access_token) => {
 		params,
 		headers: {
 			Authorization: `Bearer ${access_token}`,
+			'ngrok-skip-browser-warning': 'true',
 		},
 	});
 };
@@ -24,6 +26,7 @@ export const getPostsDeletedAPI = (params, access_token) => {
 		params,
 		headers: {
 			Authorization: `Bearer ${access_token}`,
+			'ngrok-skip-browser-warning': 'true',
 		},
 	});
 };
@@ -42,6 +45,7 @@ export const getPostDetailAPI = (postId, access_token) => {
 	return axios.get(`${API_URL.POST}/${postId}`, {
 		headers: {
 			Authorization: `Bearer ${access_token}`,
+			'ngrok-skip-browser-warning': 'true',
 		},
 	});
 };
@@ -61,6 +65,7 @@ export const postPostAPI = (params) => {
 		const response = axios.post(API_URL.POST, formData, {
 			headers: {
 				'Content-Type': 'multipart/form-data',
+				'ngrok-skip-browser-warning': 'true',
 			},
 		});
 		return response;
@@ -100,6 +105,7 @@ export const deletePostAPI = (postId) => {
 		const response = axios.delete(`${API_URL.POST}/${postId}`, {
 			headers: {
 				Authorization: `Bearer ${access_token}`,
+				'ngrok-skip-browser-warning': 'true',
 			},
 		});
 		return response;
@@ -111,7 +117,9 @@ export const deletePostAPI = (postId) => {
 
 export const postRestorePostAPI = (postId) => {
 	try {
-		const response = axios.post(`${API_URL.POST}/${postId}/restore`);
+		const response = axios.post(
+			`http://localhost:3002/api/post/${postId}/restore`,
+		);
 		return response;
 	} catch (error) {
 		console.log(error);

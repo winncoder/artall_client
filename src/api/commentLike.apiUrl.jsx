@@ -10,6 +10,7 @@ export const toggleCommentLikeAPI = (params) => {
 		const response = axios.post(API_URL.TOGGLE_COMMENTLIKE, params, {
 			headers: {
 				Authorization: `Bearer ${access_token}`,
+				'ngrok-skip-browser-warning': 'true',
 			},
 		});
 		return response;
