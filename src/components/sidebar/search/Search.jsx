@@ -50,7 +50,7 @@ export const Search = ({ isSearchOpen }) => {
 								/>
 							</a>
 							<div className="follower-info">
-								<a href={`/${user.id}`} className="follower-username">
+								<a href={`/profile/${user.id}`} className="follower-username">
 									{user.username}
 								</a>
 							</div>
